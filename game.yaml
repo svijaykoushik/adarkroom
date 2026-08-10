@@ -1,0 +1,19 @@
+id: a-dark-room
+name: A Dark Room
+
+runtime:
+  type: docker
+  service: game-adarkroom
+  port: 80
+
+hosting:
+  hostname: adarkroom.localhost
+
+metadata:
+  genre: Text Adventure / Incremental RPG
+  developer: Michael Townsend (Doublespeak Games)
+  license: GPL-3.0
+  upstream: https://github.com/doublespeakgames/adarkroom
+  multiplayer: false
+  icon: "🔥"
+  description: Minimalist text-based RPG and survival management. Awake in a cold room, light the fire, and explore.

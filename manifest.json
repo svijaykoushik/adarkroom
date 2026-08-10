@@ -1,0 +1,62 @@
+{
+  "name": "A Dark Room",
+  "short_name": "ADarkRoom",
+  "id": "doublespeakgames.adarkroom",
+  "description": "A minimalist text-based adventure and incremental resource management RPG.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#222222",
+  "categories": ["games", "role-playing", "adventure"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "img/adr.png",
+      "sizes": "300x300",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/Logo1.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "game": {
+    "genre": "Text Adventure",
+    "subgenre": "Incremental RPG / Survival",
+    "developer": "Michael Townsend (Doublespeak Games)",
+    "license": "GPL-3.0",
+    "repository": "https://github.com/doublespeakgames/adarkroom",
+    "upstream_repository": "https://github.com/doublespeakgames/adarkroom.git",
+    "entry_point": "index.html",
+    "multiplayer": false,
+    "tech_stack": ["HTML5", "JavaScript", "jQuery", "CSS3", "HTML5 Audio", "LocalStorage"],
+    "supported_languages": [
+      "en", "zh_cn", "zh_tw", "fr", "de", "el", "id", "it",
+      "ja", "ko", "nb", "pl", "pt", "pt_br", "ru", "es",
+      "sv", "th", "tr", "uk", "vi", "lt_LT", "gl"
+    ],
+    "controls": {
+      "mouse": ["Click buttons to stoke fire, gather wood, explore, and manage inventory"],
+      "keyboard": ["Arrow keys / WASD for exploration map navigation", "1-9 numerical shortcuts"],
+      "touch": ["Tap on action items and navigation buttons"]
+    },
+    "features": [
+      "Atmospheric minimalist text interface and evolving narrative",
+      "Multi-tier crafting, exploration, and combat mechanics",
+      "Automatic and manual game progress saving via LocalStorage",
+      "Comprehensive multi-language localization (23 languages)",
+      "Audio engine for atmospheric sound effects"
+    ]
+  }
+}
