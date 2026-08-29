@@ -938,5 +938,48 @@ $.Dispatch = function( id ) {
 };
 
 $(function() {
-  Engine.init();
+  // Override setItem and removeItem on localStorage globally inside the game
+  const originalSetItem = localStorage.setItem.bind(localStorage);
+  localStorage.setItem = function(key, value) {
+    originalSetItem(key, value);
+    if (window.WGCP && key === 'gameState') {
+      window.WGCP.storage.save(key, value);
+    }
+  };
+
+  const originalRemoveItem = localStorage.removeItem.bind(localStorage);
+  localStorage.removeItem = function(key) {
+    originalRemoveItem(key);
+    if (window.WGCP && key === 'gameState') {
+      window.WGCP.storage.delete(key);
+    }
+  };
+
+  const originalClear = localStorage.clear.bind(localStorage);
+  localStorage.clear = function() {
+    originalClear();
+    if (window.WGCP) {
+      window.WGCP.storage.delete('gameState');
+    }
+  };
+
+  if (window.WGCP) {
+    window.WGCP.init().then(function() {
+      // Pre-populate gameState from cloud saves before Engine.init starts
+      return window.WGCP.storage.load("gameState").then(function(val) {
+        if (val) {
+          originalSetItem("gameState", typeof val === 'string' ? val : JSON.stringify(val));
+        }
+        Engine.init();
+      }).catch(function(e) {
+        console.error("WGCP sync failed:", e);
+        Engine.init();
+      });
+    }).catch(function(e) {
+      console.error("WGCP init failed:", e);
+      Engine.init();
+    });
+  } else {
+    Engine.init();
+  }
 });
