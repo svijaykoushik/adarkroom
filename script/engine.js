@@ -969,6 +969,11 @@ $(function() {
       return window.WGCP.storage.load("gameState").then(function(val) {
         if (val) {
           originalSetItem("gameState", typeof val === 'string' ? val : JSON.stringify(val));
+        } else if (localStorage.getItem("gameState")) {
+          try {
+            var localState = JSON.parse(localStorage.getItem("gameState"));
+            window.WGCP.storage.save("gameState", localState);
+          } catch(e) {}
         }
         Engine.init();
       }).catch(function(e) {
