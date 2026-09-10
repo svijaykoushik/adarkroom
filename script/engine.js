@@ -965,6 +965,21 @@ $(function() {
 
   if (window.WGCP) {
     window.WGCP.init().then(function() {
+      // Register graceful platform teardown handler
+      window.WGCP.system.onPrepareExit(function() {
+        try {
+          if (typeof Engine !== 'undefined' && typeof Engine.saveGame === 'function') {
+            Engine.saveGame();
+          }
+          var rawState = localStorage.getItem("gameState");
+          if (rawState) {
+            return window.WGCP.storage.save("gameState", rawState);
+          }
+        } catch(e) {
+          console.warn("A Dark Room prepareExit flush warning:", e);
+        }
+      });
+
       // Pre-populate gameState from cloud saves before Engine.init starts
       return window.WGCP.storage.load("gameState").then(function(val) {
         if (val) {
