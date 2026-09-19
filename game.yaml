@@ -1,3 +1,4 @@
+specVersion: "2.3.0"
 id: a-dark-room
 name: A Dark Room
 
@@ -12,8 +13,38 @@ hosting:
 metadata:
   genre: Text Adventure / Incremental RPG
   developer: Michael Townsend (Doublespeak Games)
-  license: GPL-3.0
+  license: GPL-3.0-or-later
   upstream: https://github.com/doublespeakgames/adarkroom
   multiplayer: false
   icon: "🔥"
   description: Minimalist text-based RPG and survival management. Awake in a cold room, light the fire, and explore.
+
+services:
+  achievements:
+    - id: "fire_stoked"
+      title: "Stoke the Fire"
+      description: "Keep the room warm and survive the frosty night."
+      icon: "🔥"
+      tier: "bronze"
+    - id: "builder"
+      title: "Village Architect"
+      description: "Construct huts, a lodge, and trade posts."
+      icon: "🛖"
+      tier: "bronze"
+    - id: "compass"
+      title: "Pathfinder"
+      description: "Craft a brass compass and venture into the silent forest."
+      icon: "🧭"
+      tier: "silver"
+    - id: "starship"
+      title: "To the Stars"
+      description: "Repair the ancient alien hull and escape."
+      icon: "🚀"
+      tier: "gold"
+      secret: true
+  leaderboards:
+    - id: "highScore"
+      title: "Exploration Days"
+      description: "Survival endurance in the wilderness"
+      sortOrder: "desc"
+      unit: "days"
