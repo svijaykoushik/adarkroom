@@ -1,14 +1,8 @@
-specVersion: "2.3.0"
+specVersion: "2.4.0"
 id: a-dark-room
 name: A Dark Room
-
-runtime:
-  type: docker
-  service: game-adarkroom
-  port: 80
-
-hosting:
-  hostname: adarkroom.localhost
+url: "/games/adarkroom/index.html"
+tier: "enhanced"
 
 metadata:
   genre: Text Adventure / Incremental RPG
