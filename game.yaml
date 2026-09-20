@@ -3,6 +3,7 @@ id: a-dark-room
 name: A Dark Room
 url: "/games/adarkroom/index.html"
 tier: "enhanced"
+cardImage: "img/Logo1.jpg"
 
 metadata:
   genre: Text Adventure / Incremental RPG
@@ -10,7 +11,8 @@ metadata:
   license: GPL-3.0-or-later
   upstream: https://github.com/doublespeakgames/adarkroom
   multiplayer: false
-  icon: "🔥"
+  icon: "img/adr.png"
+  cardImage: "img/Logo1.jpg"
   description: Minimalist text-based RPG and survival management. Awake in a cold room, light the fire, and explore.
 
 services:
